@@ -3,9 +3,14 @@ function getDirContents($dir, &$results = array()) {
     $files = scandir($dir);
 
     foreach ($files as $key => $value) {
-        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        $path = "https://alkafiyah.github.io/" . $dir . "/". $value;
         if (!is_dir($path)) {
-            echo $path . "\n";
+           echo '<div class="row">
+                <a href="'.$path.'" class="list">
+                    <img src="'.$path.'" alt="" class="voucher">
+                </a>
+            </div>';
+            // echo $path . "\n";
         } else if ($value != "." && $value != "..") {
             getDirContents($path, $results);
             echo $path . "\n";
@@ -15,4 +20,4 @@ function getDirContents($dir, &$results = array()) {
     return $results;
 }
 
-getDirContents('KMB 01-40');
+getDirContents('CETAK FOTO');
